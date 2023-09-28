@@ -134,6 +134,9 @@ public class SwerveDrivetrain extends SubsystemBase {
         }
         return states;
     }
+    public double getGyroRoll() {
+        return this.gyro.getRoll();
+    }
 
     // public void setModuleStates(SwerveModuleState[] desiredStates) {
     //     SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, Constants.SwerveDrivetrain.MAX_SPEED);
@@ -141,6 +144,12 @@ public class SwerveDrivetrain extends SubsystemBase {
     //         mod.setDesiredState(desiredStates[mod.moduleNumber], false);
     //     }
     // }
+
+    public void resetToAbsolute(){
+        for(SwerveModule mod: swerveModules){
+            mod.resetToAbsolute();
+        }
+    }
 
     public void setModuleStates(SwerveModuleState[] desiredStates) {
         SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, Constants.SwerveDrivetrain.MAX_SPEED);
@@ -151,13 +160,13 @@ public class SwerveDrivetrain extends SubsystemBase {
 
 
     public void dashboard() {
-        ShuffleboardTab tab = Shuffleboard.getTab("Drivetrain");
-        tab.add(this);
-        tab.addNumber("Gyro Angle ???", this::getGyroAngleDegrees).withWidget(BuiltInWidgets.kGyro);
-        tab.addNumber("Gyro Angle (GRAPH) ???", this::getGyroAngleDegrees).withWidget(BuiltInWidgets.kGraph);
-        SmartDashboard.putData(this.field);
-        // SmartDashboard.putData("ANGLE PID", data);
-        // SmartDashboard.putData("DRIVE PID", data);
+        // ShuffleboardTab tab = Shuffleboard.getTab("Drivetrain");
+        // tab.add(this);
+        // tab.addNumber("Gyro Angle ???", this::getGyroAngleDegrees).withWidget(BuiltInWidgets.kGyro);
+        // tab.addNumber("Gyro Angle (GRAPH) ???", this::getGyroAngleDegrees).withWidget(BuiltInWidgets.kGraph);
+        // SmartDashboard.putData(this.field);
+        // // SmartDashboard.putData("ANGLE PID", data);
+        // // SmartDashboard.putData("DRIVE PID", data);
     }
 
     @Override

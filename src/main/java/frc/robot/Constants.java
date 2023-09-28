@@ -125,8 +125,21 @@ public final class Constants {
         }
     }
 
-    public static final class Shooter {
-        public static final int SHOOTER_ID = 13;
+    public static final class IntakeSubsystem {
+        public static final int MOTOR_ID = 14;
+        public static final double CUBE_DEFAULT_INTAKE_SPEED = 0.35;
+        public static final double CUBE_DEFAULT_OUTTAKE_SPEED = 0.74; //0.74
+
+    }
+
+    public static final class ArmSubsystem {
+        public static final int MID_HEIGHT = -25595; //-22000
+        public static final int GROUND_HEIGHT = 50;
+        public static final int PARTIAL_HEIGHT = -12500;
+        public static final int DIO_PORT = 1;
+        public static final double MANUAL_SPEED = 0.1;
+
+        public static final int MOTOR_ID = 15;
     }
 
     public static final class Auton {
